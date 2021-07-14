@@ -1,0 +1,19 @@
+<div class="container">
+    <header class="header">
+        <h1>{{post.title}}</h1>
+        <div class="sub-header">
+            <h4>Author: Tóth Melinda</h4>
+            <h4>Website: www.simpleblog.com</h4>
+            <a [routerLink]="'/'" routerLinkActive="active" >back to previous page</a>
+        </div>
+    </header>
+
+    <div class="body-box">
+        <p class="body">{{post.body}}</p>
+    </div>
+    <app-comment-container></app-comment-container>
+    <app-comment-form-container [postId]="post.id"></app-comment-form-container>
+
+</div>
+
+<router-outlet></router-outlet>

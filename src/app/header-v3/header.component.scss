@@ -1,0 +1,27 @@
+:host {
+  background-image: url("../assetsv3/images/travel.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  height: 160px;
+  color: white;
+  align-items: center;
+  text-shadow: 0 0 30px rgba(0,1,0,.8);
+}
+
+h1 {
+  margin-left: 30px;
+  font-size: 60px;
+  font-weight: bold;
+  & a {
+    text-decoration-line: none;
+    color: white;
+  }
+}
+
+
+
+
+
+

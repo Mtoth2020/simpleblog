@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="notification-body" [ngClass]="style" *ngIf="isNotificationVisible">
+        <div>{{ errorMessage }}</div>
+        <div>{{ textMessage }}</div>
+    </div>
+
+    <h2>Add comment - Share your thoughts!</h2>
+
+    <app-comment-form (newCommentEvent)="onComment($event)"></app-comment-form>
+</div>
+
+
+
+
+<!--
+Komment:
+feliratkozik a newCommentEventre amelynek beadunk egy callback függvényt (onComment()),
+amit amikor a newCommentEventen emittálunk egy új comment eventet meghívunk, és ezáltal kapja meg
+a comment-form-container.component.ts az adatot (új comment objectet)-->

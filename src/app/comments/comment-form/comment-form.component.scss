@@ -1,0 +1,39 @@
+
+form {
+  border: 5px solid #30D8F0;
+  border-radius: 5px;
+  padding: 50px;
+  background: #9AE4E8;
+  box-shadow: 0 0 50px dimgrey;
+  margin-bottom: 20px;
+  color: #104386;
+}
+
+.input {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid lightskyblue;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid darkred;
+  border-left: 5px solid darkred;
+  outline: 1px solid darkred;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid darkgreen;
+  border-left: 5px solid darkgreen;
+}
+
+.error {
+  color: darkred;
+  font-size: 15px;
+}

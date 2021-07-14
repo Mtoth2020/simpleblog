@@ -1,0 +1,88 @@
+<header>
+    <p>Contact us</p>
+    <mat-icon [routerLink]="'/'" routerLinkActive="active" aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+</header>
+
+<h4>We are keen to hear from You!</h4>
+
+<div class="notification-body" [ngClass]="style" *ngIf="isNotificationVisible">
+    <div>{{ errorMessage }}</div>
+    <div>{{ textMessage }}</div>
+</div>
+
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+
+    <div>
+        <label for="nameField">Name</label>
+        <br>
+        <input class="input" type="text" #nameField="ngModel"
+               name="name"
+               id="nameField"
+               required
+               autocomplete="off"
+               minlength="6"
+               ngModel>
+    </div>
+
+    <div class="error" *ngIf="nameField.invalid && !nameField.value && nameField.touched" >
+        Please fill your name! (Name is required)
+    </div>
+    <div class="error" *ngIf="nameField.value && nameField.value.length <= 6  && nameField.touched" >
+        Input should be at least 6 characters long ! (Input length)
+    </div>
+
+    <div>
+        <label for="emailField">Email</label><br>
+        <input class="input" type="email" #emailField="ngModel" name="email" id="emailField" ngModel email="true"required>
+    </div>
+
+    <div class="error" *ngIf="!emailField.value && emailField.touched" >
+        Please fill your email address!
+    </div>
+    <div class="error" *ngIf="emailField.value && emailField.invalid && emailField.touched" >
+        Please fill a valid email!
+    </div>
+
+    <div>
+        <label for="textAreaField">Message</label><br>
+        <textarea class="input" #textAreaField="ngModel" minlength="10" type="text" name="message" id="textAreaField" ngModel required></textarea>
+    </div>
+
+    <div class="error" *ngIf="textAreaField.invalid && !textAreaField.value && textAreaField.touched" >
+        Please fill your message!
+    </div>
+    <div class="error" *ngIf="textAreaField.value && textAreaField.touched && textAreaField.value.length < 10" >
+        Message should be at least 10 characters long!
+    </div>
+
+    <div>
+        <input #acceptField="ngModel" type="checkbox" name="acceptedTermsAndConditions" id="acceptField" ngModel required>
+        <label for="acceptField">Accept Terms & Conditions</label>
+    </div>
+
+    <div class="error" *ngIf="acceptField.invalid && acceptField.touched" >
+        Please read and accept our Terms and Conditions!
+    </div>
+
+    <div>
+        <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid" >Submit</button>
+        <button mat-button type="reset">Reset</button>
+    </div>
+</form>
+
+
+
+<!--
+mat-icon használat előtt:
+<a [routerLink]="'/'" routerLinkActive="active">home</a>
+
+korábbi feladat alapján teszteléshez:
+<div class="code">
+    <code>
+        {{ contactForm.value | json  }}
+    </code>
+</div>
+
+<br>
+<h5>form validity: {{ contactForm.form.valid }}</h5>-->
+

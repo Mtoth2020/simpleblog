@@ -1,0 +1,26 @@
+<div class="box">
+    <p>Comments</p>
+    <div class="line"></div>
+
+    <ng-template #filledCommentsTpl>
+        <div *ngFor="let comment of comments | sortBy: 'desc': 'id'" id="{{comment.id}}">
+            <app-comment-item [input]="comment"></app-comment-item>
+        </div>
+    </ng-template>
+
+    <ng-template #emptyCommentsTpl>
+        <h1>"Any thoughts?"</h1>
+        <h5>"Be the first, and drop your ideas on the topic!"</h5>
+    </ng-template>
+
+    <div *ngIf="comments.length === 0 then emptyCommentsTpl ; else filledCommentsTpl">
+    </div>
+</div>
+
+
+
+
+
+
+
+

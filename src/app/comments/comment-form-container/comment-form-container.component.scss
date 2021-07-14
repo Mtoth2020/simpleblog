@@ -1,0 +1,31 @@
+:host {
+  width: 100%;
+}
+
+.notification-body {
+  display: block;
+  height: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  &.red {
+    background-color: lightpink;
+    border: 2px solid red;
+  }
+  &.green {
+    background-color: lightgreen;
+    border: 2px solid green;
+  }
+  &.none {
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-right: 100px;
+}

@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  background: lightgrey;
+  height: calc(100% - 160px);
+  width: 100%;
+}
+
+.grid-container {
+  justify-items: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  padding: 10px;
+}
+
+article {
+  background: mediumpurple;
+  display: block;
+}
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+  color: darkblue;
+  font-weight: bold;
+  padding: 20px;
+  margin:0;
+}

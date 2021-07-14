@@ -1,0 +1,94 @@
+<form [formGroup]="myForm" (submit)="onSubmit()">
+    <div>
+        <label for="nameField">First name:</label><br>
+        <input type="text"
+               id="nameField"
+               class="input"
+               formControlName="firstName"
+               placeholder="Fill your first name please!">
+    </div>
+
+    <div class="error-containers" *ngIf="firstName?.invalid && firstName?.touched">
+            <p class="error" *ngIf="firstName?.errors?.required">
+                Please fill your firstname!
+            </p>
+
+            <p class="error" *ngIf="firstName?.hasError('minlength')">
+                Firstname must be at least 3 characters long.
+            </p>
+    </div>
+
+    <div>
+        <label for="lastNameField">Last name:</label><br>
+        <input type="text"
+               id="lastNameField"
+               formControlName="lastName"
+               class="input"
+               placeholder="Fill your last name please!">
+    </div>
+
+    <div class="error-containers" *ngIf="lastName?.invalid && lastName?.touched">
+        <p class="error" *ngIf="lastName?.errors?.required">
+            Please fill your lastname!
+        </p>
+
+        <p class="error" *ngIf="lastName?.errors?.minlength">
+            Lastname must be at least 3 characters long.
+        </p>
+    </div>
+
+    <div>
+        <label for="emailField">Email:</label><br>
+        <input type="text"
+               id="emailField"
+               class="input"
+               formControlName="email"
+               placeholder="Fill your email address please!">
+
+        <div class="error-containers" *ngIf="email?.invalid && email?.touched">
+
+            <p class="error" *ngIf="email?.errors?.required">
+                Please fill your email address!
+            </p>
+            <p class="error" *ngIf="email?.errors?.email">
+                Please fill a valid email address!
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <label for="body">Your comment</label><br>
+        <input type="text"
+               id="body"
+               class="input"
+               formControlName="comment" required
+               placeholder="Fill your comment please!">
+    </div>
+
+    <div class="error-containers" *ngIf="comment?.invalid && comment?.touched">
+        <p class="error" *ngIf="comment?.errors?.required">
+            Please fill your comment!
+        </p>
+
+        <p class="error" *ngIf="comment?.errors?.minlength">
+            Comment must be at least 10 characters long.
+        </p>
+    </div>
+
+    <div>
+        <input type="checkbox" name="acceptField" id="acceptField" formControlName="terms">
+        <label for="acceptField">I accept terms</label>
+        <div class="error-containers" *ngIf="terms?.invalid && terms?.touched">
+
+            <p class="error" *ngIf="terms?.errors?.required">
+                Please read and accept terms & conditions!
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <button mat-raised-button color="accent" type="submit" [disabled]="myForm.invalid" >Submit</button>
+        <button mat-button type="reset">Reset</button>
+    </div>
+</form>
+
